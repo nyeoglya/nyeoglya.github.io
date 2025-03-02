@@ -1,0 +1,26 @@
+BODY, H1, H2, H3, H4, P, UL, OL, DL, LI, DT, DD, TH, TD, I, B, EM, STRONG { font-family: sans-serif; }
+
+BODY { background: #B7E7FF; }
+
+A:link { color: #0000FF; }
+A:visited { color: #CC00CC; }
+A:hover { color: #CC9900; }
+A:active { color: #FF0000; }
+
+TABLE { border: none; }
+TH { vertical-align: top; text-align: right; }
+TD { vertical-align: top; }
+TD.sidebar { background: #9ECFE7; }
+TD.main { background: #B7E7FF; }
+TD.small { font-size: small; }
+TD.menu { font-size: small; }
+TD.submenu { font-size: x-small }
+
+DT { padding: 1ex 0ex; }
+DT:first-child { padding: 0ex 0ex; }
+DT.first { padding: 0ex 0ex; }
+
+P.bottom { font-size: small; }
+B.here { font-weight: bold; color: black; }
+
+PRE, TT, CODE { font-family: monospace; }
