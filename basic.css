@@ -1,26 +1,28 @@
-BODY, H1, H2, H3, H4, P, UL, OL, DL, LI, DT, DD, TH, TD, I, B, EM, STRONG { font-family: sans-serif; }
+/** BODY */
+BODY { background: #B7E7FF; padding: 0px 10px; }
 
-BODY { background: #B7E7FF; }
+/** TEXT */
+BODY, H1, H2, H3, H4, P, UL, OL, DL, LI, DT, DD, TH, TD, I, B, EM, STRONG { font-family: sans-serif; }
+P.bottom { font-size: small; }
+B.here { font-weight: bold; color: black; }
 
 A:link { color: #0000FF; }
 A:visited { color: #CC00CC; }
 A:hover { color: #CC9900; }
 A:active { color: #FF0000; }
 
-TABLE { border: none; }
-TH { vertical-align: top; text-align: right; }
+/** TABLE */
+TABLE { border: none; width: 100%; }
+
+TABLE.stripe { border-collapse: collapse; max-width: 600px; }
+TABLE.stripe TD { text-align: center; border: 1px solid black; }
+TABLE.stripe TH { text-align: center; border: 1px solid black; }
+
+TH { vertical-align: top; }
+TH.right { text-align: right; }
+TH.left { text-align: left; }
+
 TD { vertical-align: top; }
-TD.sidebar { background: #9ECFE7; }
-TD.main { background: #B7E7FF; }
-TD.small { font-size: small; }
-TD.menu { font-size: small; }
-TD.submenu { font-size: x-small }
+TD.right { text-align: right; }
+TD.left { text-align: left; }
 
-DT { padding: 1ex 0ex; }
-DT:first-child { padding: 0ex 0ex; }
-DT.first { padding: 0ex 0ex; }
-
-P.bottom { font-size: small; }
-B.here { font-weight: bold; color: black; }
-
-PRE, TT, CODE { font-family: monospace; }
