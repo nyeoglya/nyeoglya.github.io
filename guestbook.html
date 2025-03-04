@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="basic.css" type="text/css">
+    <title>Guestbook</title>
+    <meta name="description" content="Guestbook">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="guestbook.js"></script>
+</head>
+<body>
+    <!-- Title -->
+    <h1> Guestbook </h1>
+
+    <!-- Top -->
+    <p class="bottom">
+        [ <b class="here">Home</b>
+        | <a href="schedule.html">Schedule</a>
+        | <a href="resources.html">Resources</a>
+        ]
+        hyunseong@postech.ac.kr <a href="index.html">Hyunseong Kong</a>
+    </p>
+    <hr noshade="">
+
+    <!-- Input Box -->
+    <div>
+        <input id="nameInput" style="width: 200px" type="text" placeholder="name (default: anonymous)"><br>
+        <textarea id="contentInput" style="resize: none; width: 400px; height: 100px;" name="content" placeholder="content"></textarea><br>
+        <button id="commentBtn" onclick="insertData(); fetchData();">Comment</button>
+    </div>
+    <hr noshade="">
+
+    <!-- Comment table -->
+    <h5>Data queried at <span id="queriedTime">yy-mm-dd hh:mm:ss</span> </h5>
+    <table id="commentTable">
+    <thead><tr>
+        <th class="left" width="200">Name</th>
+        <th class="left">Content</th>
+    </tr></thead>
+    <tbody> <!-- Comments will go here. --> </tbody>
+    </table>
+
+    <!-- Bottom -->
+    <hr noshade="">
+    <p class="bottom">
+        [ <b class="here">Home</b>
+        | <a href="schedule.html">Schedule</a>
+        | <a href="resources.html">Resources</a>
+        ]
+        hyunseong@postech.ac.kr <a href="index.html">Hyunseong Kong</a>
+    </p>
+</body>
+</html>
