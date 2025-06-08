@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>nyeoglya's blog</title>
+</head>
+<body>
+    <h1><a href="index.html">nyeoglya's blog</a></h1>
+
+    <h2 class="outer" id="post-title">제목</h2>
+
+    <div class="content-list">
+        <ul>
+            <li><a id="back-link" href="./index.html">목차로 돌아가기</a></li>
+            <li><a id="prev-link" href="#">이전 글</a></li>
+            <li><a id="next-link" href="#">다음 글</a></li>
+        </ul>
+    </div>
+
+    <div id="content">내용 로딩중...</div>
+
+    <!-- Bottom -->
+    <div style="padding: 1em">
+        <ul>
+            <li><a id="back-link-bottom" href="./index.html">목차로 돌아가기</a></li>
+            <li><a id="prev-link-bottom" href="#">이전 글</a></li>
+            <li><a id="next-link-bottom" href="#">다음 글</a></li>
+        </ul>
+    </div>
+
+    <script>
+    window.MathJax = {
+        tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const category = params.get("category");
+        const id = parseInt(params.get("id"));
+
+        if (!category || isNaN(id)) {
+            document.getElementById("content").innerText = "잘못된 접근입니다.";
+        } else {
+            fetch("contents.json")
+            .then(res => res.json())
+            .then(data => {
+                const posts = data[category]['posts'];
+                if (!posts) throw new Error("카테고리 없음");
+
+                const post = posts.find(p => p.id === id);
+                if (!post) throw new Error("글 ID 없음");
+
+                // 제목 표시
+                document.getElementById("post-title").innerText = `${data[category].title} > ${post.title}`;
+
+                // 이전/다음 링크
+                const prev = posts.find(p => p.id === id - 1);
+                const next = posts.find(p => p.id === id + 1);
+                document.getElementById("back-link").href = `./category.html?category=${category}`;
+                document.getElementById("prev-link").href = prev ? `./post.html?category=${category}&id=${prev.id}` : "#";
+                document.getElementById("next-link").href = next ? `./post.html?category=${category}&id=${next.id}` : "#";
+                document.getElementById("prev-link").style.visibility = prev ? "visible" : "hidden";
+                document.getElementById("next-link").style.visibility = next ? "visible" : "hidden";
+
+                document.getElementById("back-link-bottom").href = `./category.html?category=${category}`;
+                document.getElementById("prev-link-bottom").href = prev ? `./post.html?category=${category}&id=${prev.id}` : "#";
+                document.getElementById("next-link-bottom").href = next ? `./post.html?category=${category}&id=${next.id}` : "#";
+                document.getElementById("prev-link-bottom").style.visibility = prev ? "visible" : "hidden";
+                document.getElementById("next-link-bottom").style.visibility = next ? "visible" : "hidden";
+
+                // 마크다운 불러오기
+                fetch(`posts/${post.post}`)
+                    .then(res => res.text())
+                    .then(md => {
+                    document.getElementById("content").innerHTML = marked.parse(md);
+                    MathJax.typesetPromise();
+                    })
+                    .catch(() => {
+                    document.getElementById("content").innerText = "마크다운을 불러올 수 없습니다.";
+                    });
+                })
+                .catch(err => {
+                document.getElementById("content").innerText = "글을 찾을 수 없습니다.";
+                console.error(err);
+            });
+        }
+    </script>
+</body>
+</html>

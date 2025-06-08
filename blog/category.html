@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <title>nyeoglya's blog</title>
+</head>
+<body>
+    <h1><a href="index.html">nyeoglya's blog</a></h1>
+    <h2 class="outer" id="category-title">목차</h3>
+    <a href="./index.html">← 돌아가기</a>
+    <ul id="post-list"><li>로딩 중...</li></ul>
+
+    <script>
+        // URL 파라미터 읽기
+        const params = new URLSearchParams(window.location.search);
+        const category = params.get("category");
+
+        // 콘텐츠 불러오기
+        fetch('contents.json')
+        .then(res => res.json())
+        .then(data => {
+            const filtered = data[category];
+            const list = document.getElementById('post-list');
+            const title = document.getElementById('category-title');
+            
+            title.textContent = filtered['title'];
+
+            list.innerHTML = "";
+            if (filtered.length === 0) {
+                list.innerHTML = "<li>글이 없습니다.</li>";
+                return;
+            }
+            
+            filtered['posts'].forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="post.html?category=${category}&id=${item.id}">${item.title}</a>`;
+                list.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,12 +1,14 @@
-[
-  {
+{
+  "studyai": {
     "title": "AI 공부하기",
-    "url": "./studyai/index.html",
-    "tags": ["ai", "인공지능", "공부"]
+    "posts": [
+      { "id": 1, "title": "1. 시작하기", "post": "studyai/1.md" }
+    ]
   },
-  {
+  "daily": {
     "title": "일상",
-    "url": "./daily/index.html",
-    "tags": ["life", "일상", "기록"]
+    "posts": [
+      { "id": 1, "title": "1. 블로그 시작", "post": "daily/1.md" }
+    ]
   }
-]
+}

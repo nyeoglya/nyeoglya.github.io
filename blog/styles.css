@@ -6,39 +6,35 @@ body {
     padding: 20px;
     color: #333;
 }
+div.content-list {
+    padding: 1em;
+    background-color: #eee;
+}
 h1 {
     font-size: 2.5rem;
     text-align: center;
     color: #333;
 }
-h2 {
+.outer {
     color: #333;
-}
-h3 {
     margin-top: 2em;
-    color: #555;
 }
 ul {
     list-style: square inside;
     padding-left: 1em;
 }
-input[type="text"] {
-    margin-top: 1em;
-    padding: 10px;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-}
 table {
     width: 100%;
-    margin-top: 1em;
     border-collapse: collapse;
 }
 th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #999;
+    padding: 5px;
 }
 th {
-    background-color: #f0f0f0;
     text-align: right;
+}
+a {
+    color: #0077cc;
+    text-decoration: underline;
 }
