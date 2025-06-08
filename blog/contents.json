@@ -2,7 +2,8 @@
   "studyai": {
     "title": "AI 공부하기",
     "posts": [
-      { "id": 1, "title": "1. 시작하기", "post": "studyai/1.md" }
+      { "id": 1, "title": "1. 시작하기", "post": "studyai/1.md" },
+      { "id": 2, "title": "2. 텐서플로", "post": "studyai/2.md" }
     ]
   },
   "daily": {
