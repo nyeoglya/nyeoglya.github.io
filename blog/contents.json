@@ -1,0 +1,12 @@
+[
+  {
+    "title": "AI 공부하기",
+    "url": "./studyai/index.html",
+    "tags": ["ai", "인공지능", "공부"]
+  },
+  {
+    "title": "일상",
+    "url": "./daily/index.html",
+    "tags": ["life", "일상", "기록"]
+  }
+]

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" type="text/css" />
+  <title>nyeoglya's blog</title>
+  <meta name="description" content="Hyunseong Kong" />
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; max-width: 800px; margin: auto; padding: 2rem; background: #fafafa; color: #333; }
+    h1, h3 { color: #444; }
+    ul { padding-left: 1em; list-style: disc; }
+    input[type=\"text\"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    table { margin-top: 1em; width: 100%; border-collapse: collapse; }
+    th, td { padding: 10px; border-bottom: 1px solid #ddd; }
+    th { text-align: left; color: #666; }
+    a { color: #007acc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <!-- Title -->
+  <h1>nyeoglya's blog</h1>
+
+  <!-- Contents -->
+  <h3>Contents</h3>
+  <input type="text" id="search" placeholder="검색어를 입력하세요">
+  <ul id="content-list">
+    <li>로딩 중...</li>
+  </ul>
+
+  <!-- Information -->
+  <h3>Information</h3>
+  <table>
+    <tr>
+      <th width="100">Email</th>
+      <td>hyunseong@postech.ac.kr</td>
+    </tr>
+    <tr>
+      <th>GitHub</th>
+      <td><a href="https://github.com/nyeoglya" target="_blank">nyeoglya</a></td>
+    </tr>
+  </table>
+
+  <!-- Script -->
+  <script>
+    const list = document.getElementById('content-list');
+    const searchInput = document.getElementById('search');
+    let allContents = [];
+
+    // JSON 불러오기
+    fetch('contents.json')
+      .then(res => res.json())
+      .then(data => {
+        allContents = data;
+        renderList(data);
+      });
+
+    // 필터링 함수
+    function renderList(items) {
+      list.innerHTML = '';
+      if (items.length === 0) {
+        list.innerHTML = '<li>검색 결과가 없습니다.</li>';
+        return;
+      }
+
+      items.forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="${item.url}">${item.title}</a>`;
+        list.appendChild(li);
+      });
+    }
+
+    // 검색 이벤트
+    searchInput.addEventListener('input', () => {
+      const keyword = searchInput.value.trim().toLowerCase();
+      const filtered = allContents.filter(item =>
+        item.title.toLowerCase().includes(keyword) ||
+        item.tags.some(tag => tag.toLowerCase().includes(keyword))
+      );
+      renderList(filtered);
+    });
+  </script>
+</body>
+</html>
