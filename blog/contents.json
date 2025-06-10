@@ -2,9 +2,12 @@
   "studyai": {
     "title": "AI 공부하기",
     "posts": [
-      { "id": 1, "title": "1. 시작하기", "post": "studyai/1.md" },
-      { "id": 2, "title": "2. 텐서플로", "post": "studyai/2.md" },
-      { "id": 3, "title": "3. 뉴런 만들기", "post": "studyai/3.md" }
+      { "id": 1, "title": "1. 시작하기", "post": "studyai/1.시작하기.md" },
+      { "id": 2, "title": "2. tensorflow", "post": "studyai/2.텐서플로.md" },
+      { "id": 3, "title": "3. 뉴런 만들기", "post": "studyai/3.뉴런.md" },
+      { "id": 4, "title": "4. keras 사용하기", "post": "studyai/4.케라스.md" },
+      { "id": 5, "title": "5. matplotlib 시각화", "post": "studyai/5.시각화.md" },
+      { "id": 6, "title": "6. 회귀", "post": "studyai/6.회귀.md" }
     ]
   },
   "daily": {
