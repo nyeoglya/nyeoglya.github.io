@@ -1,0 +1,156 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+    line-height: 1.4;
+    margin: 0;
+    padding: 20px;
+    background-color: #fff;
+    color: #000;
+    font-size: 11pt;
+}
+a {
+    color: #000;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 0 0.75in;
+    box-sizing: border-box;
+}
+@media (max-width: 8.5in) {
+    .container {
+        padding: 0;
+    }
+}
+
+.name {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.name h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+/* address information */
+.address-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+    line-height: 1.3;
+}
+.phone-address, .email-address {
+    width: 48%;
+}
+.phone-address {
+    text-align: left;
+}
+.email-address {
+    text-align: right;
+}
+.address-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+.address-info p {
+    margin: 0;
+    padding: 0;
+}
+
+/* sections */
+.section {
+    margin-bottom: 20px;
+}
+.section-title {
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 0;
+    line-height: 1;
+}
+
+/* ul */
+ul.no-indent {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ul.no-indent li {
+    margin-bottom: 2px;
+    padding-left: 0;
+}
+
+/* Experience section */
+.experience-item {
+    margin-bottom: 15px;
+}
+.experience-item .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+.experience-item .item-header .left-align {
+    text-align: left;
+    flex-basis: 35%;
+    font-weight: bold;
+}
+.experience-item .item-header .center-align {
+    text-align: center;
+    flex-basis: 30%;
+}
+.experience-item .item-header .right-align {
+    text-align: right;
+    flex-basis: 35%;
+}
+.experience-item ul.no-indent {
+    margin-top: 5px;
+}
+
+/* table */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Collapse borders */
+    margin-bottom: 20px;
+    font-size: 0.95em; /* Slightly smaller font for table content */
+}
+table th, table td {
+    border: 1px solid #ddd; /* Light gray borders for cells */
+    padding: 8px 10px; /* Padding inside cells */
+    text-align: center; /* Default text alignment for table cells */
+    vertical-align: top; /* Align content to the top */
+}
+table th {
+    background-color: #f8f8f8; /* Light background for table headers */
+    font-weight: bold;
+    text-transform: none; /* Do not uppercase table headers unless specifically requested */
+}
+table.stripe tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray stripe for even rows */
+}
+table .right {
+    text-align: right;
+}
+table .left {
+    text-align: left;
+}
+table.stripe tr th:nth-child(2) { /* Targeting the "Time" column header */
+    white-space: nowrap;
+}
+
+th[width="70"], td[width="70"] { width: 70px; }
+th[width="50"], td[width="50"] { width: 50px; }
+th[width="100"], td[width="100"] { width: 100px; }
+th[width="20%"], td[width="20%"] { width: 20%; }

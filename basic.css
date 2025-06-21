@@ -1,28 +1,62 @@
-/** BODY */
-BODY { background: #B7E7FF; padding: 0px 10px; }
+/* General Body Styles - Apply Times New Roman, set line height and default font size */
+body {
+    font-family: "Times New Roman", Times, serif; /* Times New Roman 우선, 없으면 Times, 그마저 없으면 일반 serif 폰트 */
+    line-height: 1.4; /* Line spacing */
+    margin: 0;
+    padding: 20px; /* Overall page padding, can be adjusted for A4-like margins */
+    background-color: #fff; /* White background */
+    color: #000; /* Black text color */
+    font-size: 11pt; /* Base font size, similar to LaTeX 10pt article class */
+}
 
-/** TEXT */
-BODY, H1, H2, H3, H4, P, UL, OL, DL, LI, DT, DD, TH, TD, I, B, EM, STRONG { font-family: sans-serif; }
-P.bottom { font-size: small; }
-B.here { font-weight: bold; color: black; }
+/* Container for page content to mimic A4 width and centered layout */
+.container {
+    max-width: 8.5in; /* A4 width approx 8.27in, 8.5in is US letter. Adjust as needed. */
+    margin: 0 auto; /* Center the content */
+    padding: 0 0.75in; /* Left/right padding similar to LaTeX default margins */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+}
 
-A:link { color: #0000FF; }
-A:visited { color: #CC00CC; }
-A:hover { color: #CC9900; }
-A:active { color: #FF0000; }
+/* Page Title (H1) */
+h1 {
+    text-align: center;
+    font-size: 1.8em; /* Adjust to be larger than section titles */
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
 
-/** TABLE */
-TABLE { border: none; width: 100%; }
+/* Section Titles (H3) - Mimic LaTeX section style */
+h3 {
+    font-size: 1.1em; /* Slightly larger than body text, but smaller than H1 */
+    font-weight: bold;
+    text-transform: uppercase; /* All caps */
+    margin-top: 30px; /* Spacing before section title */
+    margin-bottom: 10px; /* Spacing after section title */
+    line-height: 1.2;
+}
 
-TABLE.stripe { border-collapse: collapse; max-width: 600px; }
-TABLE.stripe TD { text-align: center; border: 1px solid black; }
-TABLE.stripe TH { text-align: center; border: 1px solid black; }
+/* Navigation and Contact Info (class="bottom") */
+.bottom {
+    font-size: 0.95em; /* Slightly smaller than main text */
+    text-align: left; /* Keep left alignment */
+    margin-top: 15px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
 
-TH { vertical-align: top; }
-TH.right { text-align: right; }
-TH.left { text-align: left; }
+.bottom a {
+    color: #000; /* Links black */
+    text-decoration: none; /* No underline */
+}
 
-TD { vertical-align: top; }
-TD.right { text-align: right; }
-TD.left { text-align: left; }
+.bottom a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.bottom .here {
+    font-weight: bold;
+    color: #000; /* "Schedule" text should also be black and bold */
+}
 
